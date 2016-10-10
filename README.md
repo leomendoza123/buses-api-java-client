@@ -38,10 +38,10 @@
 --------
 
 ###Clases
-![](/Diseño/classDiagram.png)
+![](/Diseño/Diagrama de clases SDK.png)
 
 ###Secuencia  
-![](/Diseño/sequenceDiagram.png)
+![](/Diseño/Diagrama de secuencia.png)
 
 
 
