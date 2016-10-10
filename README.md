@@ -1,3 +1,7 @@
+Este es un cliente en Java para el API
+https://github.com/LabExperimental-SIUA/buses-api
+
+
 # Uso de código
 --------
 
