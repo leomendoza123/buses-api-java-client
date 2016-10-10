@@ -2,12 +2,12 @@
 --------
 
 ###Importando 
-    Import org.labexp.traces 
+    import org.labexp.traces; 
 
 ###Agregando puntos de trazado 
     //Se inicia un trazado 
-    Int deviceId = 1; 
-    Trace nuevaTraza = new Trace(deviceId ); 
+    int deviceId = 1; 
+    trace nuevaTraza = new Trace(deviceId ); 
     nuevaTraza.start(); 
 
     // Se agrega una lista de puntos como parte de la ruta
@@ -25,14 +25,13 @@
 ###Agregando de metadatos
     // Se crean metadatos 
 
-    sdk.Metadata nuevosMetadatos = new sdk.Metadata("código", "nombre", "costo") 
-    nuevaTraza.setMetadata (nuevosMetadatos ); 
+    nuevaTraza.setMetadata ("código", "nombre", "costo"); 
 
 ###Finalizando traza 
   
-    nuevaTraza.finish()
+    nuevaTraza.finish();
     //o si se quiere eliminar: 
-    nuevaTraza.discard ()
+    nuevaTraza.discard ();
 
 
 #Diagramas
