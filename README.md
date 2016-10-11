@@ -8,34 +8,34 @@ https://github.com/LabExperimental-SIUA/buses-api
 ###Importando 
     import org.labexp.traces; 
 
+###Se inicia un trazado 
+
+    String deviceId = "a194cd833e33fa"; 
+    Trace trace = new Trace(deviceId ); 
+    trace.start(); 
+
 ###Agregando puntos de trazado 
-    //Se inicia un trazado 
-    int deviceId = 1; 
-    trace nuevaTraza = new Trace(deviceId ); 
-    nuevaTraza.start(); 
 
-    // Se agrega una lista de puntos como parte de la ruta
+    // Agregar un punto como parte de la ruta
 
-    list ArrayList<MapPoint> = new ArrayList<MapPoint>(); 
-    list.add (new MapPoint(-542342, 123123)); 
-    nuevaTraza.addPoint (list); 
+    trace.addPoint (-542342, 123123); 
 
-###Agregando puntos de paradas
+    // Agregar una parada
 
-    // Para agregar una parada se agrega un punto
+    trace.addStop(222.512, -123.3123 ); 
 
-    nuevaTraza.addStop(222.512, -123.3123 ); 
+###Definiendo metadatos
 
-###Agregando de metadatos
     // Se crean metadatos 
 
-    nuevaTraza.setMetadata ("código", "nombre", "costo"); 
+    trace.setMetadata ("código", "nombre", "costo"); 
 
 ###Finalizando traza 
   
-    nuevaTraza.finish();
-    //o si se quiere eliminar: 
-    nuevaTraza.discard ();
+  	// si se quiere guardar 
+    trace.finish();
+    // o si se quiere eliminar: 
+    trace.discard ();
 
 
 #Diagramas
