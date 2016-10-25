@@ -43,8 +43,7 @@ public class AppTest
         } catch (UnknownHostException e) {
             trace = new Trace("auto-maven-test");
         }
-        trace.setApiBaseUrl("http://10.173.1.153");
-        trace.start();
+        trace.start("http://10.173.1.153");
         Random  rnd = new Random();
         
         assertNotSame(trace.getTraceId(), "");

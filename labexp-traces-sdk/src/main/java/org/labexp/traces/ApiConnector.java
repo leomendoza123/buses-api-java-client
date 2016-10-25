@@ -124,11 +124,12 @@ public class ApiConnector {
    * @param traceId unique trace id
    * @param points list of points to be add
    * @return server response
+   * @throws RuntimeException server connection error
    */
   public static boolean addPoints(
           final String deviceId,
           final String traceId,
-          final ArrayList<MapPoint> points) {
+          final ArrayList<MapPoint> points)throws RuntimeException {
 
     // Creates a webResource with the API url to post start a trace
     WebResource webResource = client.resource(
@@ -179,11 +180,12 @@ public class ApiConnector {
    * @param traceId unique trace id
    * @param stop stop position
    * @return server response
+   * @throws RuntimeException server connection error
    */
   public static boolean addStop(
           final String deviceId,
           final String traceId,
-          final MapPoint stop) {
+          final MapPoint stop)throws RuntimeException {
 
     // Creates a webResource with the API url 
     WebResource webResource = client.resource(
@@ -229,13 +231,14 @@ public class ApiConnector {
   /**
    * @param deviceId unique device id
    * @param traceId unique trace id
-   * @param stop stop position
+   * @param metadata information about the trace
    * @return server response
+   * @throws RuntimeException server connection error
    */
   public static boolean setMetadata(
           final String deviceId,
           final String traceId,
-          final Metadata metadata) {
+          final Metadata metadata)throws RuntimeException {
 
     // Creates a webResource with the API url 
     WebResource webResource = client.resource(
@@ -277,9 +280,10 @@ public class ApiConnector {
   /**
    * @param traceId unique trace id
    * @return server response
+   * @throws RuntimeException server connection error
    */
   public static boolean finished(
-          final String traceId) {
+          final String traceId)throws RuntimeException {
 
     // Creates a webResource with the API url
     WebResource webResource = client.resource(
@@ -316,11 +320,12 @@ public class ApiConnector {
   /**
    * @param traceId unique trace id
    * @return server response
+   * @throws RuntimeException server connection error
    */
   public static boolean discarded(
-          final String traceId) {
+          final String traceId)throws RuntimeException {
 
-    // Creates a webResource with the API url 
+    // Creates a webResource with the API url
     WebResource webResource = client.resource(
             apiBaseUrl + PUT_FINALIZE.replaceFirst("\\{traceId\\}", traceId));
 

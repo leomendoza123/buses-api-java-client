@@ -21,7 +21,7 @@ public class Trace {
     /*
      * The url of the Api server
      */
-    private String apiBaseUrl = "http://10.173.1.153";
+    private String apiBaseUrl;
     /**
      * @return the trace id
      */
@@ -42,12 +42,7 @@ public class Trace {
     public String getApiBaseUrl() {
         return apiBaseUrl;
     }
-    /**
-     * @param apiBaseUrl the apiBaseUrl to set
-     */
-    public void setApiBaseUrl(String apiBaseUrl) {
-        this.apiBaseUrl = apiBaseUrl;
-    }
+
     /**
      * Creates a trace using a unique device identificator.
      * @param deviceId
@@ -59,9 +54,13 @@ public class Trace {
     
     /**
      * Starts the trace on the server.
-     * The server returns a unique trace id and this is saved on traceId
+     * @param apiBaseUrl the base url of the API Server: 
+     *  example: "http://10.173.1.153"
+     * @return a unique trace id and this is saved on traceId
+     * 
      */
-    public void start() {
+    public void start(String apiBaseUrl) {
+        this.apiBaseUrl = apiBaseUrl;  
         ApiConnector.createClient(apiBaseUrl);
         this.traceId = ApiConnector.startTrace (deviceId);
     }
@@ -129,6 +128,18 @@ public class Trace {
     public boolean addStop(final MapPoint stop) {
         return ApiConnector.addStop(deviceId, traceId, stop);
     }
+    
+    /**
+     * @param x latitude.
+     * @param y longitude.
+     * @return transaction success
+     */
+    public boolean addStop(final double x, final double y) {
+        MapPoint point = new MapPoint(x, y);
+        return addStop(point); 
+    }
+    
+    
     
     /**
      * Mark trace as finished on the server
