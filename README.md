@@ -10,9 +10,11 @@ https://github.com/LabExperimental-SIUA/buses-api
 
 ###Se inicia un trazado 
 
-    String deviceId = "a194cd833e33fa"; 
-    Trace trace = new Trace(deviceId ); 
-    trace.start(); 
+    String DEVICE_ID = "a194cd833e33fa";
+    String API_SERVER = "http://10.173.1.153";
+    
+    Trace trace = new Trace(DEVICE_ID);
+    trace.start(API_SERVER); 
 
 ###Agregando puntos de trazado 
 
@@ -33,9 +35,9 @@ https://github.com/LabExperimental-SIUA/buses-api
 ###Finalizando traza 
   
   	// si se quiere guardar 
-    trace.finish();
+    trace.finished();
     // o si se quiere eliminar: 
-    trace.discard ();
+    trace.discarded ();
 
 
 #Diagramas
